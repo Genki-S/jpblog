@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "File title:"
+read file_title
+date=`date +%Y-%m-%d`
+
+post_file="_posts/${date}-${file_title}.markdown"
+echo '---
+title: ""
+categories:
+---' > $post_file
+
+$EDITOR $post_file
+
+git add $post_file
+git commit -m "New post: $file_title"
+if [ $? -ne 0 ]; then
+  echo "Commit failed. DIY"
+  exit 1
+fi
