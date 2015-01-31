@@ -1,9 +1,33 @@
 box: wercker/ruby
 build:
-    steps:
-        # Execute the bundle install step, a step provided by wercker
-        - bundle-install
-        # Execute a custom script step.
-        - script:
-            name: jekyll build
-            code: bundle exec jekyll build --trace
+  steps:
+    # Execute the bundle install step, a step provided by wercker
+    - bundle-install
+    # Execute a custom script step.
+    - script:
+        name: jekyll build
+        code: bundle exec jekyll build --trace
+
+deploy:
+  steps:
+    - add-to-known_hosts:
+        hostname: direct.genkisugimoto.com
+    - mktemp:
+        envvar: PRIVATEKEY_PATH
+    - create-file:
+        name: write key
+        filename: $PRIVATEKEY_PATH
+        content: $DEPLOY_KEY_PRIVATE
+        overwrite: true
+        hide-from-log: true
+    - script:
+        name: add identity file to ssh-agent
+        code: |
+          eval $(ssh-agent)
+          ssh-add $PRIVATEKEY_PATH
+    - script:
+        name: transfer site
+        code: |
+          pwd
+          ls -la
+          rsync -arv _site/ core@direct.genkisugimoto.com:/home/core/app/jpblog/
