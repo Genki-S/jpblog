@@ -6,7 +6,7 @@ categories: 競プロ
 
 C++の "Operator Overloading" という仕組みを使うことで、`std::pair`や`std::vector`などの複雑な型を簡単に出力できるようにします。この仕組みを使えば、どんな複雑な型でも`cout << N`のように気軽に出力できるようになり便利です。
 
-Operator Overloadingについて正しく理解していないのですが、動作のイメージとしては`std::ostream`クラスに対して`operator<<`というメソッドを後から定義している、と考えていいのではないかと思っています。`std::ostream`というのは`std::cout`オブジェクトや`std::cerr`オブジェクトのクラスで、`std::cout << 42;`という式は`std::cout.operator<<(42);`(`std::cout`オブジェクトに対する`operator<<`というメソッドの呼び出し)という式と等価らしいです。
+Operator Overloadingについて正しく理解していないのですが、動作のイメージとしては`std::ostream`クラスに対して`operator<<(ostream& s, 任意の型)`というメソッドを後から定義している、と考えていいのではないかと思っています。`std::ostream`というのは`std::cout`オブジェクトや`std::cerr`オブジェクトのクラスで、`std::cout << 42;`という式は`std::cout.operator<<(42);`(`std::cout`オブジェクトに対する`operator<<`というメソッドの呼び出し)という式と等価らしいです。
 
 ## std::pair
 
