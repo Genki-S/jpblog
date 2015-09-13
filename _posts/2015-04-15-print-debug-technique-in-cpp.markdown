@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "競技プログラミングで使えるC++プリントデバッグテクニック ~ Operator Overloading 編 ~"
-categories: 競プロ
+categories: procon
 ---
 
 C++の "Operator Overloading" という仕組みを使うことで、`std::pair`や`std::vector`などの複雑な型を簡単に出力できるようにします。この仕組みを使えば、どんな複雑な型でも`cout << N`のように気軽に出力できるようになり便利です。

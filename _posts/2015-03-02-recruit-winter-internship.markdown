@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "リクルートインターンシップで負けて、猛省しております"
-categories: 就活
+categories: jobhunting
 ---
 
 参加者がみんな参加記を書く中、僕は割と書く気がなかったのですが(文章書くの苦手)、[id:yanoshi](http://profile.hatena.ne.jp/yanoshi/)の記事を見てすごくすっきりしたのでその辺を書き留めておこうと思います。
